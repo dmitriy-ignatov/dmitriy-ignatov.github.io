@@ -147,43 +147,51 @@ p{
 }
 
 /* Resune styling below */
-<style>
-  .no-bullets { 
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-  }
-
-.resume {
-  background: #ffffff;
-  padding: 32px;
-  max-width: 900px;
-  margin: 24px auto;
-  border-radius: 12px;
-  border: 1px solid #e3e8ef;
-  text-align: left;
-  line-height: 1.45;
+.resume{
+  background:#ffffff;
+  padding:32px;
+  max-width:900px;
+  margin:24px auto;
+  border-radius:12px;
+  border:1px solid #e3e8ef;
+  text-align:left;
+  line-height:1.45;
 }
 
-.resume h1, .resume h2, .resume h3 {
-  font-family: "Times New Roman", serif;
-  color: #243447;
+.resume h1, .resume h2, .resume h3{
+  font-family:"Times New Roman", serif;
+  color:var(--ink);
 }
 
-.resume .sub {
-  font-style: italic;
-  font-size: 0.9rem;
-  margin-bottom: 6px;
-  color: #333;
+.resume h1{
+  text-align:center;
+  margin-bottom:8px;
 }
 
-.no-bullets li {
-  margin-bottom: 6px;
+.resume .sub{
+  font-style:italic;
+  font-size:0.9rem;
+  margin-bottom:6px;
+  color:#333;
 }
 
-.resume h3 { margin-top: 12px; color: #243447; }
-.resume ul { margin-left: 24px; }
-.resume p, .resume ul li { font-size: 0.95rem; line-height: 1.5; }
-.resume a { color: #0b5cab; text-decoration: none; }
-.resume a:hover { text-decoration: underline; }
+/* Removes bullets */
+.no-bullets{
+  list-style-type:none;
+  padding-left:0;
+  margin:0;
+}
+
+/* Add spacing to stacked list items */
+.no-bullets li{
+  margin-bottom:6px;
+}
+
+/* Center Footer for Resume */
+.resume footer{
+  text-align:center;
+  font-size:0.85rem;
+  color:#555;
+  margin-top:20px;
+}
 
