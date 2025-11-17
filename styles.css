@@ -147,3 +147,30 @@ p{
 }
 
 /* Resune styling below */
+.resume {
+  background: #fff;
+  padding: 32px;
+  margin: 24px auto;
+  border-radius: 12px;
+  border: 1px solid #e3e8ef;
+  width: min(90%, 900px);
+  text-align: left;
+}
+
+.resume h1 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.resume h2 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 4px;
+  color: #243447;
+}
+
+.resume h3 { margin-top: 12px; color: #243447; }
+.resume ul { margin-left: 24px; }
+.resume p, .resume ul li { font-size: 0.95rem; line-height: 1.5; }
+.resume a { color: #0b5cab; text-decoration: none; }
+.resume a:hover { text-decoration: underline; }
+
