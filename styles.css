@@ -147,25 +147,38 @@ p{
 }
 
 /* Resune styling below */
+<style>
+  .no-bullets { 
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
 .resume {
-  background: #fff;
+  background: #ffffff;
   padding: 32px;
+  max-width: 900px;
   margin: 24px auto;
   border-radius: 12px;
   border: 1px solid #e3e8ef;
-  width: min(90%, 900px);
   text-align: left;
+  line-height: 1.45;
 }
 
-.resume h1 {
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.resume h2 {
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 4px;
+.resume h1, .resume h2, .resume h3 {
+  font-family: "Times New Roman", serif;
   color: #243447;
+}
+
+.resume .sub {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.no-bullets li {
+  margin-bottom: 6px;
 }
 
 .resume h3 { margin-top: 12px; color: #243447; }
