@@ -1,0 +1,63 @@
+---
+title: "Lab 11"
+author: Dmitriy Ignatov
+date: 11/09/23
+output: flexdashboard::flex_dashboard
+---
+
+```{r setup, include = FALSE}
+
+# Load required packages
+suppressPackageStartupMessages(
+  library(tidyverse, quietly = TRUE))
+suppressPackageStartupMessages(
+  library(plotly, quietly = TRUE))
+suppressPackageStartupMessages(
+  library(crosstalk, quietly = TRUE))
+
+# Load data
+pokemon <- read_csv("pokemon.csv")
+shared_pokemon <- SharedData$new(pokemon)
+```
+
+SidebarName {.sidebar}
+----------------------
+
+```{r}
+filter_select("poke_type", "Pokemon Type", shared_pokemon, ~`Type 1`)
+```
+
+Column
+-------------------------------------
+
+### Total & Type 1 of Pokemon
+
+```{r, echo = FALSE}
+p_box <- shared_pokemon %>%
+  ggplot()+
+  geom_boxplot(aes(
+    x = reorder(`Type 1`, Total, FUN = median),
+  y = Total,
+  fill = `Type 1`)
+)+
+ labs(x = "Type 1 Pokemon")+ 
+  theme(axis.text.x = element_text(angle = 45))
+ggplotly(p_box)
+```
+
+
+Column
+-------------------------------------
+
+
+### Pokemons Attack v Defense Stats
+
+```{r, echo = FALSE}
+p_point <- shared_pokemon %>%
+  ggplot()+
+  geom_point(aes(
+    Attack, Defense, color = `Type 1`
+  ))+
+  labs(title = "Attack vs Defense")
+ggplotly(p_point)
+```

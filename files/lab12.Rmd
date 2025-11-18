@@ -1,0 +1,134 @@
+---
+title: "Lab 12: Saving for Retirement"
+author: "Dmitriy Ignatov"
+date: "`r Sys.Date()`"
+documentclass: article
+geometry: margin=1in
+fontsize: 11pt
+output:
+  pdf_document:
+    highlight: tango
+    toc: false
+    df_print: kable
+    fig_caption: no
+    number_sections: no
+    dev: pdf
+  html_document:
+    highlight: tango
+    self_contained: true
+    theme: paper
+    toc: no
+    df_print: kable
+    fig_caption: no
+    number_sections: no
+    smart: yes
+    dev: svg
+  github_document:
+    html_preview: false
+    toc: true
+    toc_depth: 4
+    dev: svg
+    df_print: kable
+---
+
+```{r setup, include = FALSE}
+# DO NOT ALTER CODE IN THIS CHUNK
+# Set knitr options
+knitr::opts_chunk$set(
+  echo = TRUE, eval = TRUE, fig.width = 5,
+  fig.asp = 0.618, out.width = "80%", dpi = 120,
+  fig.align = "center", cache = FALSE
+)
+```
+
+---
+
+## Exercise 1
+
+```{r}
+savings <- 0
+income <- 58000
+interest_rate <- 0.06
+savings_rate <- 0.1
+
+for(year in 22:65){
+  savings <- savings + 0.06 * savings + 0.1*income 
+}
+savings
+```
+
+* Created a simple simulation in order to track how much we can save for retirement betweeen graduating college and reaching retirement age taking in account income, interest rate, and the savings rate
+
+* Because of the interest rate the savings compound over time and thus the printed amount is so high
+
+## Exercise 2
+
+```{r}
+savings * 0.04
+```
+
+* Using code calculated how much you would have to live on each year in retirement if you can safely withdraw 4% of the final value of your savings account 
+
+* The annual retirement income is less than our estimated annual salary before retirement
+
+## Exercise 3
+
+```{r}
+savings <- 0
+income <- 58000
+for(year in 22:65){
+  savings <- savings + 0.06 * savings + 0.1*income + 0.05*income
+}
+savings
+```
+* Using code calculated how much savings would be impacted if the employer matches 5% of your salary
+
+## Exercise 4
+
+```{r}
+savings <- 0
+income <- 58000 
+for(year in 22:65){
+  savings <- savings + 0.06 * savings + 0.1*income + 0.05*income
+  income <- income + 1000
+}
+savings
+```
+* Using code calculated an assumption that our income stays fixed for our whole career and printed out the final savings total
+
+```{r}
+savings * 0.04
+```
+* Using code calculated what 4% interest on this final savings value is 
+
+## Exercise 5
+
+```{r}
+savings <- 0
+income <- 58000 
+for(year in 22:65){
+  if(year >= 56){
+  savings <- savings + 0.06 * savings + 0.15*income + 0.05*income
+}
+  income <- income + 1000
+}
+savings
+```
+* Using code calculated what would happen if we saved 15% of our income in the last ten years of our career (from ages 56-65, with no savings prior to that)
+
+```{r}
+savings <- 0
+income <- 58000 
+for(year in 22:65){
+  if(year <= 31){
+  savings <- savings + 0.06 * savings + 0.05*income + 0.05*income
+  } else {
+savings <- savings + 0.06 * savings 
+  }
+income <- income + 1000
+}
+savings
+```
+* Using code calculated what would happen if we saved 5% of our income in the first 10 years of our career and nothing after that 
+
+* With these results it can be seen it is better to save earlier than later on in life even with a smaller interest/savings rate
