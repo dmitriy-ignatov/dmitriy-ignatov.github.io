@@ -1,6 +1,6 @@
 /* Base */
 :root{
-  --ink:#243447;
+  --ink:#000000;
   --paper:#f0f7ff;
   --subtle:#6b7a90;
   --about-bg:#e8f4ff;
@@ -11,10 +11,11 @@
 }
 
 *{ box-sizing:border-box; }
+
 html,body{ margin:0; padding:0; }
 
 body{
-  background:var(--paper);
+  **background:#000000;**
   font-family: Arial, Helvetica, sans-serif;
   color:#000;
   line-height:1.55;
@@ -28,7 +29,9 @@ body{
   padding: 0 20px 40px;
 }
 
-.site-header{ padding: 32px 16px 8px; }
+.site-header{
+  padding: 32px 16px 8px;
+}
 
 h1{
   margin:0 0 8px;
@@ -36,7 +39,13 @@ h1{
   font-family: "Times New Roman", Times, serif;
 }
 
-.tagline{ margin:0 0 24px; color:var(--subtle); }
+/* EDITED TAGLINE */
+.tagline{
+  margin:0 0 24px;
+  **color:#000000;**
+  **font-family:"Times New Roman", Times, serif;**
+  **text-align:center;**
+}
 
 /* Section cards */
 .card{
@@ -48,9 +57,39 @@ h1{
   width:min(100%, 960px);
 }
 
-.about{   background: var(--about-bg);   border-color: var(--border); }
-.skills{  background: var(--skills-bg);  border-color: #f3d09a; }
-.contact{ background: var(--contact-bg); border-color: lightslategray; }
+/* ALTERNATING BACKGROUNDS */
+.about{
+  **background:#ffffff;**
+  border-color: var(--border);
+}
+
+.skills{
+  **background:#d9d9d9;**
+  border-color: #f3d09a;
+}
+
+.problem-statement{
+  **background:#ffffff;**
+  border-color:#e3e8ef;
+}
+
+.projects{
+  **background:#d9d9d9;**
+  border:1px solid #c9e9d0;
+  border-radius:12px;
+  padding:16px;
+  margin:24px auto;
+  width:min(100%, 960px);
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  justify-content:center;
+}
+
+.contact{
+  **background:#ffffff;**
+  border-color: lightslategray;
+}
 
 /* Headings & text */
 h2, h3{
@@ -65,26 +104,10 @@ p{
   max-width: 70ch;
 }
 
-/* Projects section (container) */
-.projects{
-  background:var(--projects-bg);
-  border:1px solid #c9e9d0;
-  border-radius:12px;
-  padding:16px;
-  margin:24px auto;
-  width:min(100%, 960px);
-}
-
+/* Projects section */
 .projects > h2{
   width:100%;
   margin:4px 6px 12px;
-}
-
-/* 3-up grid for project boxes */
-.projects-grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:16px;
 }
 
 /* Individual project cards */
@@ -93,6 +116,7 @@ p{
   border:1px solid #e5e7eb;
   border-radius:16px;
   padding:16px;
+  width: clamp(260px, 31%, 360px);
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -102,15 +126,14 @@ p{
 .project-link{ text-decoration:none; }
 .project-link h3{ margin:4px 0 10px; }
 
-/* Image/thumb frame (also used by PDF preview) */
 .thumb{
   display:block;
   border-radius:12px;
   overflow:hidden;
   border:1px solid #e5e7eb;
   width:100%;
-  max-width:100%;
-  margin:0 auto;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .thumb img{
@@ -119,73 +142,32 @@ p{
   height:auto;
 }
 
-.pdf-thumb{
-  width:100%;
-  height:300px; /* matches Week 08 guidance */
-  border:2px solid rgb(126, 14, 201);
-  display:block;
-  margin:10px auto;
-  border-radius:12px;
-}
-
-/* Caption */
 .project-caption{ margin-top:10px; }
 
 /* Footer contact */
-.contact a{ color:#0b5cab; text-decoration:none; }
+.contact a{
+  color:#0b5cab;
+  text-decoration:none;
+}
 .contact a:hover{ text-decoration:underline; }
 
-/* Responsive */
-@media (max-width: 900px){
-  .projects-grid{ grid-template-columns: repeat(2, 1fr); }
-}
-
+/* Small screens */
 @media (max-width: 640px){
   h1{ font-size:1.75rem; }
+  .project{ width:100%; }
   .projects{ padding:12px; }
-  .projects-grid{ grid-template-columns: 1fr; }
 }
 
-/* Resune styling below */
-.resume{
-  background:#ffffff;
-  padding:32px;
-  max-width:900px;
-  margin:24px auto;
-  border-radius:12px;
-  border:1px solid #e3e8ef;
-  text-align:left;
-  line-height:1.45;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
-.resume h1, .resume h2, .resume h3{
-  font-family:"Times New Roman", serif;
-  color:var(--ink);
+.pdf-thumb {
+  width: 100%;
+  height: 300px;
+  border: 2px solid rgb(126, 14, 201);
+  display: block;
+  margin: 10px auto;
 }
-
-.resume h1{
-  text-align:center;
-  margin-bottom:8px;
-}
-
-.resume .sub{
-  font-style:italic;
-  font-size:0.9rem;
-  margin-bottom:6px;
-  color:#333;
-}
-
-
-/* Add spacing to stacked list items */
-.no-bullets li{
-  margin-bottom:6px;
-}
-
-/* Center Footer for Resume */
-.resume footer{
-  text-align:center;
-  font-size:0.85rem;
-  color:#555;
-  margin-top:20px;
-}
-
